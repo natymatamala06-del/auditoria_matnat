@@ -4,6 +4,7 @@
 Durante la auditoría en el módulo de pruebas DVWA, se validó la presencia de XSS mediante la inyección del siguiente payload:
 
 <script>alert('XSS')</script>
+![Evidencia XSS](img_matnat/xss_matnat.png)
 
 Resultado: La aplicación ejecutó el código inyectado directamente en el navegador, confirmando que los datos proporcionados por el usuario no están siendo validados ni sanitizados antes de su procesamiento.
 
