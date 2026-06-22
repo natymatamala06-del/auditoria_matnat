@@ -1,74 +1,64 @@
-import { useState } from "react";
+import comandosImg from "../../docs_matnat/img_matnat/comandos_matnat.png";
 
 export default function Comandos() {
-  const [logs, setLogs] = useState([]);
-
-  const ejecutarComando = (comando) => {
-    let resultado = "";
-
-    switch (comando) {
-      case "npm install":
-        resultado = "📦 Dependencias instaladas correctamente.";
-        break;
-
-      case "npm run dev":
-        resultado = "🚀 Servidor de desarrollo iniciado en http://localhost:5173";
-        break;
-
-      case "npm run build":
-        resultado = "🏗️ Build generado exitosamente.";
-        break;
-
-      case "npm run lint":
-        resultado = "🧹 Análisis completado. Sin errores críticos.";
-        break;
-
-      default:
-        resultado = "⚠️ Comando no reconocido.";
-    }
-
-    setLogs([...logs, { comando, resultado }]);
-  };
-
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Terminal de Comandos (MatNat)</h2>
+      <h1>Inyección de Comandos (Command Injection)</h1>
 
-      <div style={{ marginBottom: "15px" }}>
-        <button onClick={() => ejecutarComando("npm install")}>
-          npm install
-        </button>
+      <h2>Descripción</h2>
+      <p>
+        La vulnerabilidad de Inyección de Comandos permite ejecutar comandos del
+        sistema operativo debido a una validación insuficiente de las entradas
+        proporcionadas por el usuario.
+      </p>
 
-        <button onClick={() => ejecutarComando("npm run dev")}>
-          npm run dev
-        </button>
+      <h2>Payload utilizado</h2>
 
-        <button onClick={() => ejecutarComando("npm run build")}>
-          npm run build
-        </button>
-
-        <button onClick={() => ejecutarComando("npm run lint")}>
-          npm run lint
-        </button>
-      </div>
-
-      <div
+      <pre
         style={{
-          backgroundColor: "#111",
-          color: "#0f0",
-          padding: "15px",
-          minHeight: "200px",
-          fontFamily: "monospace",
+          background: "#f4f4f4",
+          padding: "10px",
+          borderRadius: "5px",
         }}
       >
-        {logs.map((log, index) => (
-          <div key={index}>
-            <div>$ {log.comando}</div>
-            <div>{log.resultado}</div>
-            <br />
-          </div>
-        ))}
-      </div>
+        127.0.0.1; cat /etc/passwd
+      </pre>
+
+      <h2>Evidencia del ataque</h2>
+
+      <img
+        src={comandosImg}
+        alt="Command Injection"
+        style={{
+          maxWidth: "100%",
+          border: "1px solid #ccc",
+          borderRadius: "8px",
+        }}
+      />
+
+      <h2>¿Por qué funciona?</h2>
+
+      <p>
+        La aplicación incorpora directamente la entrada del usuario en un
+        comando del sistema operativo. Al utilizar el carácter ";", el atacante
+        puede ejecutar comandos adicionales.
+      </p>
+
+      <h2>CVSS</h2>
+
+      <p>
+        <strong>Puntaje:</strong> 9.8 (Crítica)
+      </p>
+
+      <h2>Medidas de mitigación</h2>
+
+      <ul>
+        <li>Validar todas las entradas de usuario.</li>
+        <li>Utilizar listas blancas de caracteres permitidos.</li>
+        <li>Evitar funciones que ejecuten comandos del sistema.</li>
+        <li>Aplicar el principio de mínimo privilegio.</li>
+        <li>Monitorear y registrar eventos de seguridad.</li>
+      </ul>
     </div>
   );
 }

@@ -1,59 +1,84 @@
 export default function Controles() {
   const controles = [
     {
-      vulnerabilidad: "XSS (DOM / innerHTML)",
-      activo: "xss.jsx",
+      vulnerabilidad: "SQL Injection",
+      activo: "Base de Datos de Clientes",
+      politica:
+        "Todas las consultas a bases de datos deben realizarse mediante mecanismos seguros que impidan la manipulación de instrucciones SQL.",
       medidas: [
-        "Sanitizar entradas con DOMPurify",
-        "Evitar dangerouslySetInnerHTML",
+        "Utilizar consultas parametrizadas",
+        "Validar entradas de usuario",
+        "Aplicar principio de mínimo privilegio",
+        "Monitorear consultas sospechosas",
+        "Realizar pruebas periódicas de seguridad",
+      ],
+    },
+    {
+      vulnerabilidad: "Cross-Site Scripting (XSS)",
+      activo: "Portal Web de Clientes",
+      politica:
+        "Toda información ingresada por usuarios debe ser validada y sanitizada antes de ser procesada o mostrada.",
+      medidas: [
+        "Sanitizar entradas de usuario",
         "Escapar caracteres especiales",
+        "Implementar Content Security Policy (CSP)",
+        "Validar formularios en cliente y servidor",
+        "Mantener actualizadas las librerías",
       ],
     },
     {
-      vulnerabilidad: "Inyección de datos (simulada SQL)",
-      activo: "inyeccionSQL.jsx",
+      vulnerabilidad: "Command Injection",
+      activo: "Servidor Principal",
+      politica:
+        "Se prohíbe la ejecución directa de comandos del sistema utilizando entradas proporcionadas por usuarios.",
       medidas: [
-        "Consultas parametrizadas",
-        "Validación estricta de inputs",
-        "Uso de ORM seguro",
+        "Validar estrictamente los datos de entrada",
+        "Utilizar listas blancas de caracteres permitidos",
+        "Evitar funciones que ejecuten comandos del sistema",
+        "Aplicar principio de mínimo privilegio",
+        "Implementar monitoreo y registros de seguridad",
       ],
     },
     {
-      vulnerabilidad: "Ejecución simulada de comandos",
-      activo: "comandos.jsx",
+      vulnerabilidad: "Protección de Información Sensible",
+      activo: "Escrituras, Poderes y Datos Personales",
+      politica:
+        "La información crítica debe mantenerse protegida contra accesos no autorizados, pérdida o alteración.",
       medidas: [
-        "Whitelist de comandos permitidos",
-        "Evitar ejecución dinámica",
-        "Separación de lógica UI/backend",
-      ],
-    },
-    {
-      vulnerabilidad: "Seguridad general",
-      activo: "App.jsx",
-      medidas: [
-        "Modularización del sistema",
-        "Validación global de entradas",
-        "Manejo centralizado de errores",
+        "Cifrar información sensible",
+        "Mantener respaldos periódicos",
+        "Proteger certificados digitales",
+        "Controlar accesos según roles",
+        "Aplicar autenticación multifactor",
       ],
     },
   ];
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Controles de Seguridad (MatNat)</h2>
+      <h1>Políticas de Prevención y Controles de Mitigación</h1>
 
       {controles.map((c, index) => (
         <div
           key={index}
           style={{
-            marginBottom: "20px",
-            border: "1px solid #ccc",
-            padding: "15px",
-            borderRadius: "8px",
+            marginBottom: "25px",
+            padding: "20px",
+            borderRadius: "12px",
+            border: "1px solid #475569",
           }}
         >
-          <h3>{c.vulnerabilidad}</h3>
-          <p><strong>Activo:</strong> {c.activo}</p>
+          <h2>{c.vulnerabilidad}</h2>
+
+          <p>
+            <strong>Activo afectado:</strong> {c.activo}
+          </p>
+
+          <p>
+            <strong>Política de prevención:</strong> {c.politica}
+          </p>
+
+          <h3>Controles de mitigación</h3>
 
           <ul>
             {c.medidas.map((m, i) => (

@@ -1,66 +1,63 @@
-import { useState } from "react";
+import xssImg from "../../docs_matnat/img_matnat/xss_matnat.png";
 
 export default function Xss() {
-  const [input, setInput] = useState("");
-  const [mensaje, setMensaje] = useState("");
-  const [vulnerable, setVulnerable] = useState(false);
-
-  const enviar = () => {
-    setMensaje(input);
-
-    // Detecta posibles patrones de XSS (modo demo académico)
-    const sospechoso =
-      input.includes("<script") ||
-      input.includes("onerror") ||
-      input.includes("onload") ||
-      input.includes("javascript:");
-
-    setVulnerable(sospechoso);
-  };
-
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Demo XSS</h2>
+      <h1>XSS Reflejado (Cross-Site Scripting)</h1>
+
+      <h2>Descripción</h2>
+      <p>
+        La vulnerabilidad XSS permite que un atacante inyecte código JavaScript
+        malicioso que será ejecutado en el navegador de otros usuarios.
+      </p>
+
+      <h2>Payload utilizado</h2>
+
+      <pre
+        style={{
+          background: "#f4f4f4",
+          padding: "10px",
+          borderRadius: "5px",
+        }}
+      >
+        {"<script>alert('XSS')</script>"}
+      </pre>
+
+      <h2>Evidencia del ataque</h2>
 
       <img
-        src="/xss.png"
-        alt="Ejemplo de XSS"
-        style={{ width: "300px", marginBottom: "15px" }}
-      />
-
-      <input
-        type="text"
-        placeholder="Escribe algo"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      />
-
-      <button onClick={enviar}>Enviar</button>
-
-      {/* 🚨 ALERTA VISUAL */}
-      {vulnerable && (
-        <div
-          style={{
-            marginTop: "15px",
-            padding: "10px",
-            backgroundColor: "red",
-            color: "white",
-            fontWeight: "bold",
-            borderRadius: "5px",
-          }}
-        >
-          ⚠️ VULNERABLE A XSS DETECTADO
-        </div>
-      )}
-
-      <div
+        src={xssImg}
+        alt="Ataque XSS"
         style={{
-          marginTop: "20px",
-          border: "1px solid black",
-          padding: "10px",
+          maxWidth: "100%",
+          border: "1px solid #ccc",
+          borderRadius: "8px",
         }}
-        dangerouslySetInnerHTML={{ __html: mensaje }}
       />
+
+      <h2>¿Por qué funciona?</h2>
+
+      <p>
+        La aplicación no valida ni filtra correctamente los datos ingresados por
+        el usuario, permitiendo que el navegador interprete y ejecute código
+        JavaScript enviado por un atacante.
+      </p>
+
+      <h2>CVSS</h2>
+
+      <p>
+        <strong>Puntaje:</strong> 6.1 (Media)
+      </p>
+
+      <h2>Medidas de mitigación</h2>
+
+      <ul>
+        <li>Validar y sanitizar entradas de usuario.</li>
+        <li>Escapar caracteres especiales en HTML.</li>
+        <li>Implementar Content Security Policy (CSP).</li>
+        <li>Utilizar frameworks que protejan contra XSS.</li>
+        <li>Realizar pruebas periódicas de seguridad.</li>
+      </ul>
     </div>
   );
 }

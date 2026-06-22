@@ -1,40 +1,69 @@
 export default function Activos() {
   const activos = [
     {
-      nombre: "App.jsx",
-      tipo: "Componente",
-      descripcion: "Componente raíz de la aplicación",
+      nombre: "Escrituras Públicas",
+      tipo: "Información",
+      descripcion:
+        "Documentos legales que acreditan actos y contratos celebrados ante notario.",
     },
     {
-      nombre: "xss.jsx",
-      tipo: "Componente",
-      descripcion: "Demo de vulnerabilidad XSS mediante HTML dinámico",
+      nombre: "Poderes Notariales",
+      tipo: "Información",
+      descripcion:
+        "Documentos que otorgan representación legal a personas o empresas.",
     },
     {
-      nombre: "inyeccionSQL.jsx",
-      tipo: "Componente",
-      descripcion: "Simulación de entrada vulnerable a inyección SQL",
+      nombre: "Datos Personales de Clientes",
+      tipo: "Información",
+      descripcion:
+        "Información sensible de clientes, incluyendo identificación y datos de contacto.",
     },
     {
-      nombre: "comandos.jsx",
-      tipo: "Componente",
-      descripcion: "Terminal simulada de comandos del sistema",
+      nombre: "Sistema de Gestión Notarial",
+      tipo: "Software",
+      descripcion:
+        "Aplicación utilizada para administrar trámites y documentos notariales.",
     },
     {
-      nombre: "public/xss.png",
-      tipo: "Recurso",
-      descripcion: "Imagen utilizada en la demostración de XSS",
+      nombre: "Base de Datos",
+      tipo: "Información",
+      descripcion:
+        "Repositorio que almacena clientes, escrituras, poderes y registros.",
+    },
+    {
+      nombre: "Servidor Principal",
+      tipo: "Infraestructura",
+      descripcion:
+        "Equipo que soporta la operación de los sistemas de la notaría.",
+    },
+    {
+      nombre: "Certificados Digitales",
+      tipo: "Seguridad",
+      descripcion:
+        "Credenciales utilizadas para validar documentos electrónicos.",
+    },
+    {
+      nombre: "Firmas Electrónicas",
+      tipo: "Seguridad",
+      descripcion:
+        "Mecanismos de autenticación y validación de documentos digitales.",
+    },
+    {
+      nombre: "Respaldos de Información",
+      tipo: "Seguridad",
+      descripcion:
+        "Copias de seguridad utilizadas para recuperación ante incidentes.",
     },
   ];
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Inventario de Activos (MatNat)</h2>
+      <h1>Inventario de Activos de la Notaría</h1>
 
-      <table border="1" cellPadding="10" style={{ width: "100%" }}>
+      <table>
         <thead>
           <tr>
-            <th>Nombre</th>
+            <th>Activo</th>
             <th>Tipo</th>
             <th>Descripción</th>
           </tr>

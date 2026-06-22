@@ -1,55 +1,75 @@
-# 08 - Plan de Recuperación del Sistema (MatNat)
+# 08 - Mejora Tecnológica y Plan de Recuperación (DR)
 
-##  Objetivo
-Definir estrategias para restaurar el sistema en caso de fallos, pérdida de datos o explotación de vulnerabilidades.
+## Objetivo
 
----
-
-##  Estrategias de recuperación
-
-###  1. Restauración de código fuente
-- Uso de control de versiones (Git)
-- Repositorio con historial de commits
-- Posibilidad de volver a versiones estables anteriores
+Garantizar la continuidad operativa de la Notaría Central Digital frente a incidentes de seguridad que puedan afectar la disponibilidad, integridad o confidencialidad de la información.
 
 ---
 
-###  2. Recuperación de componentes críticos
+# Mejora Tecnológica
 
-| Componente        | Acción de recuperación              |
-|------------------|-------------------------------------|
-| App.jsx          | Revertir a última versión estable   |
-| xss.jsx          | Reemplazar con versión sanitizada   |
-| inyeccionSQL.jsx | Validar y corregir entradas         |
-| comandos.jsx     | Limitar comandos permitidos         |
+## Fortalecimiento de la Infraestructura
 
----
+- Implementar un Firewall de Aplicaciones Web (WAF).
+- Mantener actualizados los sistemas operativos y aplicaciones.
+- Aplicar autenticación multifactor para usuarios y administradores.
+- Segmentar redes críticas para reducir superficies de ataque.
 
-###  3. Recuperación de recursos
+## Protección de la Información
 
-- Restaurar archivos desde carpeta `public/`
-- Verificación de integridad de imágenes y assets
+- Cifrar datos sensibles almacenados en bases de datos.
+- Proteger certificados digitales y firmas electrónicas.
+- Implementar controles de acceso basados en roles.
 
----
+## Monitoreo y Detección
 
-###  4. Reinstalación del entorno
-
-```bash id="t9env0"
-npm install
-npm run dev
-
- Permite reconstruir el entorno en caso de corrupción del proyecto.
+- Implementar sistemas de monitoreo continuo.
+- Centralizar registros de eventos de seguridad.
+- Configurar alertas automáticas ante actividades sospechosas.
 
 ---
 
-###  5. Prevención de pérdida de datos
+# Plan de Recuperación ante Desastres (DR)
 
-- Uso de control de versiones (Git)
-- Backups periódicos del repositorio
-- Separación de entornos (desarrollo / producción)
+## Respuesta Inicial al Incidente
+
+- Aislar los sistemas comprometidos.
+- Identificar el origen del incidente.
+- Bloquear accesos no autorizados.
+- Notificar al equipo responsable.
+
+## Recuperación de Datos
+
+- Restaurar respaldos recientes.
+- Verificar la integridad de la información recuperada.
+- Confirmar la eliminación de software malicioso.
+- Validar el funcionamiento correcto de los sistemas.
+
+## Recuperación Operacional
+
+- Restablecer el Portal Web de Clientes.
+- Recuperar el acceso a la Base de Datos de Clientes.
+- Verificar la disponibilidad de escrituras y poderes notariales.
+- Restablecer servicios críticos para los usuarios.
+
+## Continuidad del Negocio
+
+- Mantener copias de seguridad automáticas.
+- Realizar pruebas periódicas de recuperación.
+- Capacitar al personal en respuesta a incidentes.
+- Documentar procedimientos de recuperación y continuidad operacional.
 
 ---
 
-### 🧠 Conclusión
+## Beneficios Esperados
 
-El sistema puede ser restaurado de manera eficiente gracias al uso de control de versiones y la modularización de sus componentes. La recuperación depende principalmente del historial del repositorio y buenas prácticas de desarrollo.
+- Reducción del tiempo de recuperación ante incidentes.
+- Mayor disponibilidad de los servicios notariales.
+- Protección de la información sensible de clientes.
+- Disminución del impacto económico y reputacional de incidentes de seguridad.
+
+---
+
+## Conclusión
+
+La combinación de mejoras tecnológicas y un plan formal de recuperación ante desastres permite fortalecer la resiliencia de la Notaría Central Digital, garantizando la continuidad de los servicios y la protección de la información crítica administrada por la organización.

@@ -17,13 +17,17 @@ function InyeccionSQL() {
             Evidencia del Ataque
           </h3>
 
-          <p className="mb-2">
-            Payload utilizado:
-          </p>
+          <h2>Payload utilizado</h2>
 
-          <code className="block bg-gray-100 p-3 rounded">
-            ' OR '1'='1
-          </code>
+      <pre
+        style={{
+          background: "#f4f4f4",
+          padding: "10px",
+          borderRadius: "5px",
+        }}
+      >
+        ' OR '1'='1
+      </pre>
 
           <img
             src="/img/sqli_matnat.png"

@@ -1,54 +1,78 @@
-# 09 - Registro de Prompts Utilizados (MatNat)
+# 09 - Bitácora de Uso de Inteligencia Artificial (MatNat)
 
-## 🧠 Objetivo
-Documentar los prompts utilizados durante el desarrollo del proyecto de auditoría de seguridad, como evidencia del proceso de construcción y asistencia.
+## Objetivo
 
----
-
-## 💬 Prompts de desarrollo
-
-### 🧩 Creación de componentes React
-
-- “Crea un componente React que simule una vulnerabilidad XSS usando dangerouslySetInnerHTML”
-- “Haz un componente que muestre una matriz de riesgos en una tabla”
-- “Genera un panel visual de controles de seguridad en React”
-- “Crea una simulación de terminal con comandos como npm run dev”
+Documentar el uso de herramientas de Inteligencia Artificial durante el desarrollo del proyecto de auditoría de seguridad de la Notaría Central Digital, evidenciando los prompts utilizados para apoyar la investigación, documentación y construcción de los entregables.
 
 ---
 
-### 🔐 Seguridad y auditoría
+## Prompts Utilizados
 
-- “Explica cómo funciona una inyección XSS en frontend”
-- “Qué controles se pueden aplicar para mitigar XSS”
-- “Cómo documentar una vulnerabilidad en un informe de auditoría”
-- “Ejemplo de matriz de riesgos para un sistema web”
+### Definición de la Empresa y Activos
 
----
-
-### 📊 Documentación del proyecto
-
-- “Crea un informe en Markdown de activos de un sistema”
-- “Genera un plan de recuperación de sistema en formato auditoría”
-- “Cómo estructurar un informe de seguridad en desarrollo web”
+* "Crea una empresa ficticia para una auditoría de seguridad informática."
+* "Genera activos críticos para una notaría digital."
+* "Identifica información sensible administrada por una notaría."
+* "Ejemplos de activos de información para una organización legal."
 
 ---
 
-### ⚙️ Soporte técnico
+### Análisis de Vulnerabilidades
 
-- “Cómo usar dangerouslySetInnerHTML en React”
-- “Dónde guardar imágenes en un proyecto Vite + React”
-- “Cómo hacer commits en Git correctamente”
-
----
-
-## 🧠 Observaciones
-
-- Los prompts fueron utilizados de forma iterativa durante el desarrollo del sistema.
-- Se ajustaron progresivamente según los resultados obtenidos.
-- El proceso combinó aprendizaje guiado y construcción práctica del proyecto.
+* "Explica cómo funciona una vulnerabilidad SQL Injection."
+* "Explica una vulnerabilidad XSS Reflected."
+* "Cómo funciona una vulnerabilidad Command Injection."
+* "Qué impacto tendría una vulnerabilidad SQL Injection en una base de datos de clientes."
+* "Cómo documentar una vulnerabilidad según una auditoría de seguridad."
 
 ---
 
-## 📌 Conclusión
+### Gestión de Riesgos
 
-El desarrollo del sistema se apoyó en prompts estructurados que permitieron construir componentes, documentación y análisis de seguridad de forma progresiva, facilitando la comprensión de vulnerabilidades web y sus mitigaciones.
+* "Cómo construir una matriz de riesgos de probabilidad e impacto."
+* "Ejemplo de mapa de calor para una auditoría de seguridad."
+* "Cómo clasificar riesgos en niveles Bajo, Medio, Alto y Crítico."
+* "Ejemplos de riesgos para una notaría digital."
+
+---
+
+### Políticas y Controles de Seguridad
+
+* "Qué controles mitigan SQL Injection."
+* "Qué controles mitigan XSS."
+* "Qué controles mitigan Command Injection."
+* "Ejemplos de políticas de prevención para una organización."
+* "Cómo redactar controles de mitigación para una auditoría."
+
+---
+
+### Recuperación y Continuidad Operacional
+
+* "Cómo elaborar un Plan de Recuperación ante Desastres (DR)."
+* "Ejemplos de mejora tecnológica para fortalecer la seguridad."
+* "Qué debe incluir un plan de continuidad operacional."
+* "Cómo proteger información crítica en una notaría."
+
+---
+
+### Desarrollo de la Aplicación React
+
+* "Crear un componente React para mostrar una matriz de riesgos."
+* "Generar un componente para mostrar activos de información."
+* "Crear una vista de controles y mitigaciones."
+* "Mejorar el diseño CSS de una aplicación React."
+* "Cómo estructurar una aplicación React para una auditoría."
+
+---
+
+## Observaciones
+
+* La Inteligencia Artificial fue utilizada como herramienta de apoyo para investigación, redacción y desarrollo.
+* Todos los resultados fueron revisados, adaptados y validados antes de incorporarse al proyecto.
+* Los prompts se ajustaron iterativamente para obtener información más precisa y alineada con los objetivos de la auditoría.
+
+---
+
+## Conclusión
+
+El uso de Inteligencia Artificial permitió agilizar la elaboración de la documentación, el análisis de riesgos, la definición de controles de seguridad y el desarrollo de la aplicación de apoyo. Su utilización contribuyó al aprendizaje y a la construcción de una auditoría más completa y estructurada.

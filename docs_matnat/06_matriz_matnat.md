@@ -1,38 +1,82 @@
 # 06 - Matriz de Riesgos (MatNat)
 
-##  Objetivo
-Evaluar los activos del sistema identificados previamente, asignando niveles de riesgo según impacto y probabilidad de explotación.
+## Objetivo
+
+Evaluar los riesgos asociados a los activos críticos de la Notaría Central Digital, considerando el impacto potencial y la probabilidad de ocurrencia de las vulnerabilidades identificadas durante la auditoría.
 
 ---
 
-##  Escala utilizada
+## Escala utilizada
 
-- **Impacto:** Bajo / Medio / Alto
-- **Probabilidad:** Baja / Media / Alta
-- **Riesgo:** Bajo / Medio / Alto (resultado combinado)
+### Impacto
 
----
+| Nivel | Descripción |
+|---------|---------|
+| Bajo | Afectación menor a las operaciones |
+| Medio | Interrupción parcial de servicios |
+| Alto | Compromiso de información crítica o interrupción significativa |
 
-##  Matriz de evaluación
+### Probabilidad
 
-| Activo              | Vulnerabilidad asociada        | Impacto | Probabilidad | Riesgo |
-|---------------------|--------------------------------|----------|--------------|--------|
-| xss.jsx             | XSS (DOM / innerHTML)          | Alto     | Alta         | Alto   |
-| inyeccionSQL.jsx    | Inyección de datos (simulada)   | Alto     | Media        | Alto   |
-| comandos.jsx        | Ejecución simulada de comandos  | Medio    | Baja         | Bajo   |
-| App.jsx             | Integración general del sistema | Medio    | Baja         | Bajo   |
-| public/xss.png      | Recurso estático                | Bajo     | Baja         | Bajo   |
+| Nivel | Descripción |
+|---------|---------|
+| Baja | Poco probable |
+| Media | Posible bajo ciertas condiciones |
+| Alta | Muy probable debido a vulnerabilidades existentes |
 
----
+### Nivel de Riesgo
 
-##  Análisis
-
-- El componente **xss.jsx** representa el mayor riesgo debido a la ejecución directa de HTML sin sanitización.
-- Las simulaciones de inyección de datos permiten comprender ataques comunes en formularios.
-- Los componentes de interfaz general no presentan riesgo directo, pero dependen de la seguridad de los módulos internos.
+Resultado obtenido al combinar Impacto y Probabilidad.
 
 ---
 
-##  Conclusión
+## Matriz de Evaluación
 
-El sistema presenta vulnerabilidades controladas con fines educativos, destacando principalmente XSS como riesgo crítico. La matriz permite visualizar prioridades de mitigación.
+| Activo | Vulnerabilidad | Impacto | Probabilidad | Riesgo |
+|----------|----------|----------|----------|----------|
+| Base de Datos de Clientes | SQL Injection | Alto | Alta | Crítico |
+| Portal Web de Clientes | XSS Reflected | Medio | Alta | Alto |
+| Servidor Principal | Command Injection | Alto | Alta | Crítico |
+| Escrituras Públicas | Acceso no autorizado | Alto | Media | Alto |
+| Datos Personales de Clientes | Fuga de información | Alto | Alta | Crítico |
+| Certificados Digitales | Robo de credenciales | Alto | Media | Alto |
+| Sistema de Gestión Notarial | Manipulación de registros | Alto | Media | Alto |
+
+---
+
+## Mapa de Calor (Probabilidad × Impacto)
+
+| Impacto / Probabilidad | Baja | Media | Alta |
+|-----------------------|------|------|------|
+| **Alto** | 🟨 Medio | 🟧 Alto | 🟥 Crítico |
+| **Medio** | 🟩 Bajo | 🟨 Medio | 🟧 Alto |
+| **Bajo** | 🟩 Bajo | 🟩 Bajo | 🟨 Medio |
+
+---
+
+## Interpretación de Resultados
+
+| Nivel | Significado |
+|---------|---------|
+| 🟥 Crítico | Requiere mitigación inmediata |
+| 🟧 Alto | Debe ser tratado en el corto plazo |
+| 🟨 Medio | Requiere seguimiento y controles |
+| 🟩 Bajo | Riesgo aceptable |
+
+---
+
+## Análisis
+
+- La vulnerabilidad de **SQL Injection** representa uno de los mayores riesgos, ya que podría permitir el acceso o modificación de la base de datos que contiene información sensible de clientes y trámites legales.
+
+- La vulnerabilidad **XSS Reflected** afecta directamente al portal de clientes, pudiendo comprometer sesiones de usuario o facilitar el robo de información.
+
+- La vulnerabilidad de **Command Injection** presenta un riesgo crítico debido a la posibilidad de ejecutar comandos arbitrarios sobre el servidor, comprometiendo completamente la infraestructura.
+
+- Los activos relacionados con documentos legales y datos personales poseen un alto valor para la organización, por lo que cualquier acceso no autorizado podría generar consecuencias legales, económicas y reputacionales.
+
+---
+
+## Conclusión
+
+La evaluación identifica riesgos críticos asociados principalmente a SQL Injection y Command Injection. Debido a la sensibilidad de la información administrada por la Notaría Central Digital, resulta fundamental implementar controles de seguridad que reduzcan la probabilidad de explotación y protejan la confidencialidad, integridad y disponibilidad de los activos críticos.

@@ -1,65 +1,92 @@
-# 07 - Controles y Mitigaciones (MatNat)
+# 07 - Políticas de Prevención y Controles de Mitigación (MatNat)
 
-##  Objetivo
-Definir medidas de seguridad recomendadas para mitigar las vulnerabilidades identificadas en el sistema.
+## Objetivo
 
----
-
-##  Vulnerabilidades y controles asociados
-
-###  XSS (Cross-Site Scripting)
-**Activo:** `xss.jsx`
-
-**Problema:**
-- Uso de `dangerouslySetInnerHTML`
-- Inyección directa de HTML sin sanitización
-
-**Controles recomendados:**
-- Sanitizar entradas con librerías como DOMPurify
-- Evitar renderizado directo de HTML dinámico
-- Escapar caracteres especiales
-- Validación estricta de inputs
+Definir las políticas y controles de seguridad que permitan reducir los riesgos identificados durante la auditoría de la Notaría Central Digital.
 
 ---
 
-###  Inyección de datos (simulada SQL)
-**Activo:** `inyeccionSQL.jsx`
+## Vulnerabilidad: SQL Injection
 
-**Problema:**
-- Entradas no validadas
-- Simulación de consultas inseguras
+### Activo afectado
+Base de Datos de Clientes
 
-**Controles recomendados:**
-- Uso de consultas parametrizadas
-- Validación de inputs en frontend y backend
-- ORM seguro (Prisma, Sequelize, etc.)
-- Filtrado de caracteres especiales
+### Política de Prevención
 
----
+La organización debe exigir que todas las consultas a bases de datos se desarrollen utilizando mecanismos seguros que impidan la manipulación de instrucciones SQL mediante datos ingresados por usuarios.
 
-###  Ejecución simulada de comandos
-**Activo:** `comandos.jsx`
+### Controles de Mitigación
 
-**Problema:**
-- Simulación sin restricciones de comandos
-
-**Controles recomendados:**
-- Validar comandos permitidos (whitelist)
-- Evitar ejecución dinámica de código
-- Separar lógica de UI y lógica de sistema
+- Utilizar consultas parametrizadas.
+- Implementar validación de entradas.
+- Aplicar principios de mínimo privilegio en las cuentas de base de datos.
+- Realizar pruebas periódicas de seguridad.
+- Monitorear accesos y consultas sospechosas.
 
 ---
 
-###  Seguridad general del sistema
-**Activo:** `App.jsx`
+## Vulnerabilidad: Cross-Site Scripting (XSS)
 
-**Controles recomendados:**
-- Modularización del código
-- Validación global de entradas
-- Manejo centralizado de errores
+### Activo afectado
+
+Portal Web de Clientes
+
+### Política de Prevención
+
+Toda información ingresada por usuarios deberá ser validada y sanitizada antes de ser procesada o mostrada en el navegador.
+
+### Controles de Mitigación
+
+- Sanitizar entradas de usuario.
+- Escapar caracteres especiales.
+- Implementar Content Security Policy (CSP).
+- Validar formularios en cliente y servidor.
+- Mantener actualizadas las librerías utilizadas por la aplicación.
 
 ---
 
-##  Conclusión
+## Vulnerabilidad: Command Injection
 
-La mayoría de las vulnerabilidades detectadas pueden ser mitigadas mediante validación de entradas, sanitización de datos y buenas prácticas de desarrollo seguro. La implementación de controles reduce significativamente el riesgo de explotación.
+### Activo afectado
+
+Servidor Principal
+
+### Política de Prevención
+
+La organización debe prohibir la ejecución directa de comandos del sistema operativo utilizando entradas proporcionadas por usuarios.
+
+### Controles de Mitigación
+
+- Validar estrictamente los datos de entrada.
+- Utilizar listas blancas de caracteres permitidos.
+- Evitar funciones que ejecuten comandos del sistema.
+- Aplicar el principio de mínimo privilegio.
+- Implementar monitoreo y registros de eventos de seguridad.
+
+---
+
+## Controles Generales de Seguridad
+
+### Gestión de Accesos
+
+- Aplicar autenticación multifactor.
+- Gestionar privilegios según funciones laborales.
+- Revisar periódicamente los accesos otorgados.
+
+### Protección de la Información
+
+- Cifrar información sensible.
+- Mantener respaldos periódicos.
+- Proteger certificados digitales y firmas electrónicas.
+
+### Gestión de Vulnerabilidades
+
+- Mantener sistemas actualizados.
+- Realizar auditorías de seguridad periódicas.
+- Corregir vulnerabilidades identificadas oportunamente.
+
+---
+
+## Conclusión
+
+La implementación de políticas de prevención y controles de mitigación permite reducir significativamente los riesgos identificados durante la auditoría. Estas medidas contribuyen a proteger la confidencialidad, integridad y disponibilidad de la información administrada por la Notaría Central Digital.

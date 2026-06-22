@@ -1,66 +1,73 @@
 # 05 - Inventario de Activos del Sistema (MatNat)
 
-##  Objetivo
-Identificar y documentar los componentes, recursos y elementos relevantes del sistema evaluado en la auditoría.
+## Objetivo
+
+Identificar y documentar los activos de información, tecnológicos y operacionales de la notaría, con el fin de evaluar los riesgos que podrían afectar la confidencialidad, integridad y disponibilidad de la información.
 
 ---
 
-##  Activos del proyecto
+## Activos de Información
 
-###  Componentes principales (React)
+### Escrituras Públicas
 
-- `App.jsx`  
-  Componente raíz que integra toda la aplicación.
+Documentos legales que acreditan actos jurídicos y contratos celebrados ante notario. Constituyen uno de los activos más importantes de la organización.
 
-- `xss.jsx`  
-  Componente que simula vulnerabilidad XSS mediante inserción de HTML sin sanitización.
+### Poderes Notariales
 
-- `inyeccionSQL.jsx`  
-  Simulación de entrada vulnerable a inyección SQL (modo educativo).
+Documentos que otorgan representación legal a terceros para actuar en nombre de una persona o empresa.
 
-- `comandos.jsx`  
-  Simulador de terminal para ejecución de comandos del entorno de desarrollo.
+### Datos Personales de Clientes
 
----
+Información sensible de los usuarios, incluyendo nombres, direcciones, números de identificación, teléfonos y correos electrónicos.
 
-###  Recursos estáticos
+### Certificados y Firmas Electrónicas
 
-- `public/xss.png`  
-  Imagen utilizada como apoyo visual en la demostración de XSS.
+Credenciales digitales utilizadas para validar la autenticidad de documentos y trámites notariales.
 
 ---
 
-###  Configuración del proyecto
+## Activos Tecnológicos
 
-- `package.json`  
-  Contiene dependencias y scripts del proyecto.
+### Sistema de Gestión Notarial
 
-- `vite.config.js` (si aplica)  
-  Configuración del entorno de desarrollo.
+Aplicación utilizada para registrar, almacenar y administrar documentos, trámites y clientes.
 
-- `eslint.config.js`  
-  Reglas de calidad de código.
+### Base de Datos
 
----
+Repositorio que almacena toda la información relacionada con clientes, escrituras, poderes y registros notariales.
 
-##  Activos relacionados con seguridad
+### Servidor Principal
 
-- Uso de `dangerouslySetInnerHTML` (riesgo XSS)
-- Inputs sin sanitización en pruebas
-- Payloads de prueba:
-  - `<img src=x onerror=alert('XSS') />`
-  - `' OR 1=1 --`
+Infraestructura que permite el funcionamiento de los sistemas informáticos y el acceso a la información.
 
----
+### Equipos de Trabajo
 
-##  Observaciones
+Computadores utilizados por notarios y funcionarios para realizar las actividades diarias.
 
-- Los activos identificados corresponden a un entorno de desarrollo local.
-- El sistema no maneja datos reales ni sensibles.
-- Las vulnerabilidades están implementadas de forma intencional para fines educativos.
+### Sistema de Respaldo
+
+Mecanismos destinados a realizar copias de seguridad y recuperación de información en caso de incidentes.
 
 ---
 
-##  Conclusión
+## Activos Relacionados con la Seguridad
 
-El sistema contiene componentes que permiten simular y analizar vulnerabilidades comunes en aplicaciones web modernas, facilitando el aprendizaje de seguridad en desarrollo frontend.
+* Credenciales de acceso de usuarios y administradores.
+* Certificados digitales institucionales.
+* Firmas electrónicas avanzadas.
+* Registros de auditoría y monitoreo.
+* Copias de seguridad de documentos y bases de datos.
+
+---
+
+## Observaciones
+
+* La información gestionada por la notaría posee un alto nivel de sensibilidad y valor legal.
+* La pérdida, alteración o divulgación no autorizada de los documentos podría generar consecuencias legales, económicas y reputacionales.
+* La protección de los datos personales debe cumplir con la normativa vigente de protección de datos.
+
+---
+
+## Conclusión
+
+Los activos identificados son fundamentales para la operación de la notaría y requieren medidas de seguridad adecuadas para garantizar su confidencialidad, integridad y disponibilidad. La protección de estos activos permite asegurar la continuidad operacional y la confianza de los clientes en los servicios notariales.
