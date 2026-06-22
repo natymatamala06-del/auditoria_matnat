@@ -1,52 +1,68 @@
-import "./App.css";
+﻿import "./App.css";
+import { useState } from "react";
 
-import Activos from "./Activos";
-import Comandos from "./Comandos";
-import Controles from "./Controles";
-import InyeccionSQL from "./InyeccionSQL";
-import Matriz from "./Matriz";
-import Prompts from "./Prompts";
-import Recuperacion from "./Recuperacion";
-import Xss from "./Xss";
+import Resumen from "./components/Resumen";
+import InyeccionSQL from "./components/InyeccionSQL";
+import XSS from "./components/XSS";
+import Comandos from "./components/Comandos";
+import Activos from "./components/Activos";
+import Matriz from "./components/Matriz";
+import Controles from "./components/Controles";
+import Recuperacion from "./components/Recuperacion";
+import Prompts from "./components/Prompts";
 
-function App() {
+export default function App() {
+  const [vista, setVista] = useState("resumen");
+
+  const renderVista = () => {
+    switch (vista) {
+      case "resumen":
+        return <Resumen />;
+      case "sql":
+        return <InyeccionSQL />;
+      case "xss":
+        return <XSS />;
+      case "comandos":
+        return <Comandos />;
+      case "activos":
+        return <Activos />;
+      case "matriz":
+        return <Matriz />;
+      case "controles":
+        return <Controles />;
+      case "recuperacion":
+        return <Recuperacion />;
+      case "prompts":
+        return <Prompts />;
+      default:
+        return <Resumen />;
+    }
+  };
+
   return (
     <div className="app">
-      <h1>Auditoría de Seguridad MatNat</h1>
+      {/* SIDEBAR */}
+      <aside className="sidebar">
+        <h2>🛡️ MatNat SOC</h2>
 
-      <section>
-        <InyeccionSQL />
-      </section>
+        <button onClick={() => setVista("resumen")}> Resumen</button>
+        <button onClick={() => setVista("sql")}> Inyección SQL</button>
+        <button onClick={() => setVista("xss")}> XSS</button>
+        <button onClick={() => setVista("comandos")}> Comandos</button>
+        <button onClick={() => setVista("activos")}> Activos</button>
+        <button onClick={() => setVista("matriz")}> Matriz de Riesgo</button>
+        <button onClick={() => setVista("controles")}> Controles</button>
+        <button onClick={() => setVista("recuperacion")}> Recuperación</button>
+        <button onClick={() => setVista("prompts")}> Prompts</button>
+      </aside>
 
-      <section>
-        <Xss />
-      </section>
-
-      <section>
-        <Comandos />
-      </section>
-
-      <section>
-        <Activos />
-      </section>
-
-      <section>
-        <Matriz />
-      </section>
-
-      <section>
-        <Controles />
-      </section>
-
-      <section>
-        <Recuperacion />
-      </section>
-
-      <section>
-        <Prompts />
-      </section>
+      {/* CONTENIDO PRINCIPAL */}
+      <main className="content">
+        <div className="card">
+          <h1>Security Operations Dashboard</h1>
+          {renderVista()}
+        </div>
+      </main>
     </div>
   );
 }
-
-export default App;
