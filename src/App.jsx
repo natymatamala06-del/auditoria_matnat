@@ -1,39 +1,50 @@
-import InyeccionSQL from "./inyeccionSQL";
-import Xss from "./xss";
-import Comandos from "./comandos";
-import Activos from "./activos";
-import Matriz from "./matriz";
-import Controles from "./controles";
-import Recuperacion from "./recuperacion";
-import Prompts from "./prompts";
+import "./App.css";
+
+import Activos from "./Activos";
+import Comandos from "./Comandos";
+import Controles from "./Controles";
+import InyeccionSQL from "./InyeccionSQL";
+import Matriz from "./Matriz";
+import Prompts from "./Prompts";
+import Recuperacion from "./Recuperacion";
+import Xss from "./Xss";
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <h1>Auditoría de Seguridad MatNat</h1>
 
-      <InyeccionSQL />
-      <hr />
+      <section>
+        <InyeccionSQL />
+      </section>
 
-      <Xss />
-      <hr />
+      <section>
+        <Xss />
+      </section>
 
-      <Comandos />
-      <hr />
+      <section>
+        <Comandos />
+      </section>
 
-      <Activos />
-      <hr />
+      <section>
+        <Activos />
+      </section>
 
-      <Matriz />
-      <hr />
+      <section>
+        <Matriz />
+      </section>
 
-      <Controles />
-      <hr />
+      <section>
+        <Controles />
+      </section>
 
-      <Recuperacion />
-      <hr />
+      <section>
+        <Recuperacion />
+      </section>
 
-      <Prompts />
+      <section>
+        <Prompts />
+      </section>
     </div>
   );
 }
