@@ -43,7 +43,7 @@ export default function App() {
     <div className="app">
       {/* SIDEBAR */}
       <aside className="sidebar">
-        <h2>🛡️ MatNat SOC</h2>
+        <h2>MENÚ PRINCIPAL</h2>
 
         <button onClick={() => setVista("resumen")}> Resumen</button>
         <button onClick={() => setVista("sql")}> Inyección SQL</button>
@@ -59,7 +59,7 @@ export default function App() {
       {/* CONTENIDO PRINCIPAL */}
       <main className="content">
         <div className="card">
-          <h1>Security Operations Dashboard</h1>
+          <h1>Panel de control de Seguridad de la Información</h1>
           {renderVista()}
         </div>
       </main>

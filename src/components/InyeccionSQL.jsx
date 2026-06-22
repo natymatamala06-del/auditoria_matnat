@@ -5,19 +5,22 @@ function InyeccionSQL() {
     <section className="bg-white rounded-lg shadow p-6 mb-6">
       <div className="flex items-center gap-2 mb-4">
         <Database className="text-red-600" />
-        <h2 className="text-2xl font-bold">
+        <h1 className="text-2xl font-bold">
           Inyección SQL (SQL Injection)
-        </h2>
+        </h1>
+
+        <h2>Descripción</h2>
+      <p>
+      La Inyección SQL es un tipo de vulnerabilidad informática de alta gravedad que afecta a las aplicaciones web [].
+      Ocurre cuando un sistema permite que datos de entrada proporcionados por el usuario se concatenen directamente con una consulta a la base de datos sin la debida validación o sanitización [, ].
+      </p>
       </div>
 
       <div className="space-y-6">
 
         <div>
-          <h3 className="text-lg font-semibold mb-2">
-            Evidencia del Ataque
-          </h3>
 
-          <h2>Payload utilizado</h2>
+          <h3>Contenido utilizado</h3>
 
       <pre
         style={{
@@ -28,7 +31,9 @@ function InyeccionSQL() {
       >
         ' OR '1'='1
       </pre>
-
+      <h3 className="text-lg font-semibold mb-2">
+            Evidencia del Ataque
+          </h3>
           <img
             src="/img/sqli_matnat.png"
             alt="Evidencia SQL Injection"
@@ -38,18 +43,6 @@ function InyeccionSQL() {
           <p className="mt-3">
             La aplicación devolvió registros almacenados en la base de datos,
             demostrando la existencia de una vulnerabilidad de Inyección SQL.
-          </p>
-        </div>
-
-        <div>
-          <h3 className="text-lg font-semibold mb-2">
-            Explicación Técnica
-          </h3>
-
-          <p>
-            La vulnerabilidad ocurre cuando la aplicación incorpora datos
-            proporcionados por el usuario directamente dentro de consultas SQL
-            sin validación adecuada ni consultas parametrizadas.
           </p>
         </div>
 
@@ -68,7 +61,7 @@ function InyeccionSQL() {
 
         <div>
           <h3 className="text-lg font-semibold mb-2">
-            Evaluación CVSS 3.1
+            Evaluación CVSS 
           </h3>
 
           <div className="bg-red-50 border border-red-200 rounded p-4">
